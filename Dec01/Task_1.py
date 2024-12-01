@@ -5,7 +5,7 @@ f = open(os.path.join(__location__,"Input.txt"))
 
 data = [x.split("   ") for x in f.read().split("\n")]
 
-left =[]
+left = []
 right = []
 
 for x in data:
@@ -14,10 +14,9 @@ for x in data:
     
 left.sort()
 right.sort()
-
 result=0
 
-for i,x in enumerate(right):    
-    result+= abs(right[i]-left[i])
+for l,r in zip(left,right):    
+    result += abs(l-r)
     
 print(result)
