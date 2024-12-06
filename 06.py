@@ -31,8 +31,9 @@ while -1<r<R and -1<c<C:
     
     if -1<nr<R and -1<nc<C and grid[nr][nc]=='#':
         dc,dr = -dr,dc      
-    r += dr
-    c += dc
+    else:
+        r += dr
+        c += dc
     
 print(len(visited))
 
@@ -54,12 +55,12 @@ def createsLoop(grid,r,c):
         
         if grid[nr][nc]=='#':    
             dc,dr = -dr,dc
+        else:
+            r += dr
+            c += dc
         
-        r += dr
-        c += dc
-        
-        if (r,c,dr,dc) in visited2:
-            return True
+            if (r,c,dr,dc) in visited2:
+                return True
 
 
 p2=0
