@@ -2,7 +2,7 @@ with open(__file__[-5:-3]+'.in') as f: data = f.read()
 
 lines = data.split("\n")
 
-def canBeSolved(result,operators):
+def canBeSolved(result,operators,p):
     
     res = []
     res2 = []
@@ -24,18 +24,22 @@ def canBeSolved(result,operators):
                     res2.append(y+x)
                 elif y+x == result:
                     return True
-                if int(str(y)+str(x))<result:
+                if p == 2 and int(str(y)+str(x))<result:
                     res2.append(int(str(y)+str(x)))              
-                elif int(str(y)+str(x)) == result:
+                elif p == 2 and int(str(y)+str(x)) == result:
                     return True
     return False
 
 p1=0
+p2=0
 for line in lines:
     result = int(line.split(':')[0])
     operators = list(map(int,line.split(':')[1].split()))
     
-    if canBeSolved(result,operators):
+    if canBeSolved(result,operators,1):
         p1+=result
+    if canBeSolved(result,operators,2):
+        p2+=result
 
 print(p1)
+print(p2)
