@@ -1,9 +1,3 @@
-01-test.in
-01.in
-02-test.in
-02.in
-03-test.in
-03.in
 *.in
 Template.py
 Snippet-Library.py
